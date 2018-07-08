@@ -1,5 +1,7 @@
 #!/usr/bin/python
+# Generates prime multiplcation table
 
+import sys
 def prime_multi_table (num):
     """
     Generate multiplication table of primes
@@ -11,3 +13,11 @@ def prime_multi_table (num):
 | 3| 6| 9| 15|
 | 5| 10| 15| 25|"""
     return output
+
+if __name__== "__main__":
+    # TODO: Use PEP8 formatting
+    if len(sys.argv)  !=2 :
+       print  "Usage: primes <size>"
+    # TODO: Check input
+    size  = int(sys.argv[1])
+    print "size: %s" % size
