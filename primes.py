@@ -2,6 +2,7 @@
 # Generates prime multiplcation table
 
 import sys
+import math
 
 
 def prime_multi_table(num):
@@ -17,10 +18,45 @@ def prime_multi_table(num):
     return output
 
 
+def get_primes(n):
+    """
+    Use Sieve of Eratosthenes to find primes
+    >>> get_primes(3)
+    [2, 3, 5]
+    >>> get_primes(20)
+    [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71]
+    """
+    # Estimate sieve size
+    size = int(n*math.log(n) + n*math.log(n))
+    sieve = [True] * size
+    for i in range(2, int(math.sqrt(size)) + 1):
+        pointer = i * 2
+        while pointer < size:
+            sieve[pointer] = False
+            pointer += i
+
+    primes = []
+
+    for i in range(2, size):
+        if sieve[i] == True:
+            primes.append(i)
+            # Stop when we get to nth prime
+            if len(primes) == n:
+                break
+    return primes
+
+
+def main(n):
+    primes = get_primes(n)
+    print primes
+
+
 if __name__ == "__main__":
-    # TODO: Use PEP8 formatting
     if len(sys.argv) != 2:
-        print "Usage: primes <size>"
+        print "Usage: primes <n>"
+        print "where n is number of primes"
     # TODO: Check input
-    size = int(sys.argv[1])
-    print "size: %s" % size
+    # TODO: Exception handling
+    n = int(sys.argv[1])
+
+    main(n)
