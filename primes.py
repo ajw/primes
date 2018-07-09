@@ -46,9 +46,26 @@ def get_primes(n):
     return primes
 
 
-def main(n):
+def prime_multi_table(n):
+    """
+    Generate multiplication table of primes
+    >>> prime_multi_table(3)
+    '|  | 2| 3| 5|\\n| 2| 4| 6| 10|\\n| 3| 6| 9| 15|\\n| 5| 10| 15| 25|'
+    """
     primes = get_primes(n)
-    print primes
+    # TODO: generate table in more efficient/elegant way
+    line = '|  |'
+    for i in primes:
+        line += " %s|" % i
+    line += "\n|"
+    for i in primes:
+        line += " %s|" % i
+        for j in primes:
+            product = i*j
+            line += " %s|" % product
+        if j != i or i != primes[-1]:
+            line += "\n|"
+    return line
 
 
 if __name__ == "__main__":
@@ -59,4 +76,5 @@ if __name__ == "__main__":
     # TODO: Exception handling
     n = int(sys.argv[1])
 
-    main(n)
+    table = prime_multi_table(n)
+    print table
