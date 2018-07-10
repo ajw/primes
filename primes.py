@@ -1,26 +1,14 @@
 #!/usr/bin/python
 # Generates prime multiplcation table
 
+from __future__ import print_function
 import sys
 import math
 
 
-def prime_multi_table(num):
-    """
-    Generate multiplication table of primes
-    >>> prime_multi_table(3)
-    '|  | 2| 3| 5|\\n| 2| 4| 6| 10|\\n| 3| 6| 9| 15|\\n| 5| 10| 15| 25|'
-    """
-    output = """|  | 2| 3| 5|
-| 2| 4| 6| 10|
-| 3| 6| 9| 15|
-| 5| 10| 15| 25|"""
-    return output
-
-
 def get_primes(n):
     """
-    Use Sieve of Eratosthenes to find primes
+    Use Sieve of Eratosthene to find primes
     >>> get_primes(3)
     [2, 3, 5]
     >>> get_primes(20)
@@ -54,27 +42,26 @@ def prime_multi_table(n):
     """
     primes = get_primes(n)
     # TODO: generate table in more efficient/elegant way
-    line = '|  |'
+    print ('|  |', end='')
     for i in primes:
-        line += " %s|" % i
-    line += "\n|"
+        print(" %s|" % i, end='')
+    print("\n|", end='')
     for i in primes:
-        line += " %s|" % i
+        print (" %s|" % i, end='')
         for j in primes:
             product = i*j
-            line += " %s|" % product
+            print (" %s|" % product, end='')
         if j != i or i != primes[-1]:
-            line += "\n|"
-    return line
+            print ("\n|", end='')
 
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
-        print "Usage: primes <n>"
-        print "where n is number of primes"
+        print ("Usage: primes <n>")
+        print ("where n is number of primes")
     # TODO: Check input
     # TODO: Exception handling
     n = int(sys.argv[1])
 
     table = prime_multi_table(n)
-    print table
+    # print table
