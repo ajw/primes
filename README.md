@@ -5,7 +5,7 @@ Usage:
 ```sh
 primes.py <n>
 ```
-where n is number of primes
+where n is number of primes.
 
 Run doctest using:
 ```sh
@@ -16,11 +16,11 @@ For verbose output use:
 python -m doctest -v primes.py
 ```
 
-ToDo:
+TODO:
 * Verify input
 * Make table formatting and output more elegant
 * Evaluate improvements to prime algorithm
 
 Performance results for 20000 primes:
-* output via string 35m25.177s
+* output via string: 35m25.177s
 * output direct to stdout: 25m8.090s
