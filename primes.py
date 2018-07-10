@@ -67,4 +67,3 @@ if __name__ == "__main__":
     n = int(sys.argv[1])
 
     table = prime_multi_table(n)
-    # print table
