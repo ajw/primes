@@ -14,7 +14,7 @@ def get_primes(n):
     >>> get_primes(20)
     [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71]
     """
-    # Estimate sieve size
+    # Use Rossers Theorem to get upper bound for nth prime.
     size = int(n*math.log(n) + n*math.log(n))
     sieve = [True] * size
     for i in range(2, int(math.sqrt(size)) + 1):
