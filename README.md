@@ -24,3 +24,4 @@ TODO:
 Performance results for 20000 primes:
 * output via string: 35m25.177s
 * output direct to stdout: 25m8.090s
+* just do calculation with no output: 18s 
